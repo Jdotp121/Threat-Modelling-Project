@@ -10,12 +10,16 @@ flowchart TD
         BE[Backend Server]
     end
     subgraph "Database"
-        DB[Database Server]
+        DB[Database]
     end
     subgraph "External Services"
-        CnC[Command and Control Server]
+        Slack[Slack Integration]
+        GitHub[GitHub API]
+        GDrive[Google Drive Integration]
     end
     UI --> FE
     FE --> BE
     BE --> DB
-    BE --> CnC
+    BE --> Slack
+    BE --> GitHub
+    BE --> GDrive
