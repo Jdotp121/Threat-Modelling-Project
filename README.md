@@ -1,23 +1,45 @@
 # Project Summary
 
-This project is a new and revolutionary approach to Threat Modelling as a template that you can use. I have worked across a plethora of different industries in cyber security for over ten years and I have yet to find a suitable method to run threat modelling. I have therefore created this template for you to use either in your future DevSecOps role or for you to create a project to help you show on your CV/in interviews when asked about threat modelling. 
+Application Summary: "TaskHub" - A Project Management Web Application
+TaskHub is a cloud-based project management application designed to help teams organize tasks, track project progress, and collaborate in real-time. The application is built using a modern microservices architecture, leveraging a RESTful API and a web-based frontend, accessible on both desktop and mobile devices.
 
-Threat modelling diagrams/models should also reside within the repos of the projects. This approach ensures teams underestand the threats to the applications and continue to own it.
+Key Features:
 
-To access the code for this repo please visit the following website for the full video and code to create your first threat modelling project: (https://cyberagoge.thinkific.com/courses/take/devsecops-bootcamp/texts/55130887-part-1-introduction-to-the-course) Sigg up and click free preview and visit project 4 for the code and video. 
-
-Customise all of the below to a chosen application - this can be make believe or a running application you have created for your project as created during the bootcamp or a live, real application for your organisation. If the application is live and real I recommned you keep the repo private.
+User Authentication and Authorization:
+Users can sign up using an email/password combination or OAuth via Google and GitHub.
+Role-based access control (RBAC) to assign different permissions to users (Admin, Manager, Team Member).
+Task Management:
+Users can create, assign, and track tasks with due dates, priorities, and labels.
+Task status is updated in real-time, and tasks can be assigned to multiple users.
+Project Collaboration:
+Teams can collaborate on shared projects, with a dedicated chat and document-sharing functionality.
+Activity logs track changes to tasks and project data.
+API Integrations:
+The application integrates with third-party services like Slack, Google Drive, and GitHub to provide notifications and file storage.
+Data Storage:
+All task and project data is stored in a cloud-based NoSQL database (e.g., MongoDB).
+User data, such as passwords and OAuth tokens, are stored securely in a relational database (e.g., PostgreSQL).
+Notifications and Alerts:
+Users can configure push notifications for task updates, project milestones, and deadlines.
+Email notifications are sent for important updates and reminders.
+Multi-Tenant Architecture:
+The application supports multiple organizations, with isolated data for each team.
+Admins within each organization can manage their users, projects, and tasks independently.
+Deployment and Infrastructure:
+Hosted on AWS with Kubernetes for container orchestration.
+Load balancers and autoscaling groups ensure high availability and performance.
+Traffic to and from the application is secured using HTTPS (TLS).
 
 # Threat Modelling Workshop Summary
 
 ## Introduction
-A 3 Hour threat modelling workshop took place to detail the runbook scenario of multiple AI attacks against the web-facing health care application Solaris Care Connect 360.
+A 3 Hour threat modelling workshop took place to detail the runbook scenario of multiple AI attacks against the web-facing application TaskHub.
 
 ## Attendess
 Care Connect Eng team, Product Managers, DevEx Engineers and the DevSecOps Team.
 
 ## Scope
-4 Scenarios were run covering: (1) AI Generated External phishing email utilising admin credentials, (2) Attack against Machine Processes and the data lake, (3) SQL Injection attack and (4) Insider attack taking Quant algorithms.
+4 Scenarios were run covering: (1) AI Generated External phishing email utilising admin credentials, (2) Authentication Risks: Password brute-force attacks and (3) Data Breach: Unauthorized access to sensitive data (e.g., task information, user credentials) via SQL Injection attack 
 
 ## Methodology
 All scenarios were run against the cyber attack killchain, utilising the Mitre Att&ack framework and STRIDE for control gap assessments. Culminating in identified risks. 
@@ -27,13 +49,13 @@ A total of 4 high risks and 1 medium risks were found during the threat modellin
 
 ## Controls Required
 
-- Regular security audits using ASVS specifically targeting the Solaris Health 360 application to detect vulnerabilities and weaknesses in its security measures.
-- Patch management to ensure the Solari Health 360 application and its underlying technologies are up-to-date and protected against known vulnerabilities.
-- Comprehensive employee training on phishing awareness to educate users of the Solaris Health 360 application about the risks of phishing attacks and how to identify and report suspicious emails.
-- Implementation of a Web Application Firewall (WAF) tailored to the Solari Health 360 application's traffic to monitor and filter incoming requests for malicious activity.
-- Deployment of Multi-factor Authentication (MFA) to enhance authentication security and prevent unauthorized access to the Solari Health 360 application.
-- Continuous network traffic monitoring to detect and respond to suspicious activity within the Solari Health 360 application's infrastructure.
-- Implementation of Role-based Access Control (RBAC) within the Solari Health 360 application to limit access to sensitive health data and functionalities based on user roles and permissions.
+- Regular security audits using ASVS specifically targeting the Taskhub application to detect vulnerabilities and weaknesses in its security measures.
+- Patch management to ensure the Taskhub application and its underlying technologies are up-to-date and protected against known vulnerabilities.
+- Mitigation against DDoS: Rate limiting, load balancing, DDoS protection.
+- Comprehensive employee training on phishing awareness to educate users of the Taskhub application about the risks of phishing attacks and how to identify and report suspicious emails.
+- Implementation of a Web Application Firewall (WAF) tailored to the Taskhub application's traffic to monitor and filter incoming requests for malicious activity, to detect and block SQL injection attempts at the network level. This adds an extra layer of defense against known SQL injection patterns.
+- Deployment of Multi-factor Authentication (MFA) to enhance authentication security and prevent unauthorized access to the Taskhub application.
+- Continuous network traffic monitoring to detect and respond to suspicious activity within the Taskhub application's infrastructure.
 
 # Threat Modelling Process Summary
 
