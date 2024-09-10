@@ -23,4 +23,17 @@ The attacker uses the compromised admin credentials to create additional adminis
 Actions on Objectives
 With admin access, the attacker exfiltrates sensitive project data, including client details, internal communications, and project timelines. Additionally, the attacker might modify or delete critical tasks, manipulate data related to ongoing projects, or disrupt the workflow within the TaskHub environment. The attacker could also use this access to affect integrations with external services like Slack or Google Drive, further spreading the attack to other connected systems.
 
+```mermaid
+flowchart LR
+    A[Reconnaissance] -->|Identify key admin users| B{Phishing Campaign}
+    B -->|Craft phishing email| C[Weaponization]
+    C -->|Send malicious email| D[Delivery]
+    D -->|Trick admin to log into fake portal| E[Exploitation]
+    E -->|Capture admin credentials| F[Exploitation]
+    F -->|Use credentials to access TaskHub backend| G[Installation]
+    G -->|Create backdoor account| H[Installation]
+    H -->|Maintain persistent access| I[Command and Control]
+    I -->|Exfiltrate sensitive project data| J[Actions on Objectives]
+    J -->|Manipulate or delete project tasks| K[Actions on Objectives]
+    J -->|Disrupt project timelines| L[Actions on Objectives]
 
