@@ -29,15 +29,15 @@ Damage to reputation, as clients lose confidence in TaskHub’s ability to maint
 
 ```mermaid
 flowchart LR
-    A[Reconnaissance] -->|Identify key admin users| B{Phishing Campaign}
-    B -->|Craft phishing email| C[Weaponization]
-    C -->|Send malicious email| D[Delivery]
-    D -->|Trick admin to log into fake portal| E[Exploitation]
-    E -->|Capture admin credentials| F[Exploitation]
-    F -->|Use credentials to access TaskHub backend| G[Installation]
-    G -->|Create backdoor account| H[Installation]
-    H -->|Maintain persistent access| I[Command and Control]
-    I -->|Exfiltrate sensitive project data| J[Actions on Objectives]
-    J -->|Manipulate or delete project tasks| K[Actions on Objectives]
-    J -->|Disrupt project timelines| L[Actions on Objectives]
+    A[Reconnaissance] -->|Identify TaskHub infrastructure| B{Botnet Assembly}
+    B -->|Compromise devices to create botnet| C[Weaponization]
+    C -->|Prepare to launch DDoS attack| D[Delivery]
+    D -->|Flood TaskHub with traffic| E[Exploitation]
+    E -->|Overwhelm web servers and network| F[Exploitation]
+    F -->|Cause service disruptions and downtime| G[Impact]
+    G -->|Prevent legitimate user access| H[Impact]
+    G -->|Damage reputation and client trust| I[Impact]
+    G -->|Distract security team| J[Potential Secondary Attack]
+    J -->|Recon or vulnerability exploitation| K[Potential Secondary Attack]
+
 
