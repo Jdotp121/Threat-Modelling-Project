@@ -31,10 +31,19 @@ graph TD
     T5([Denial of Service: Overload Server]) -.-> B
     T6([Elevation of Privilege: Unauthorized Access]) -.-> I
 
+    %% DDoS Attack Flow
+    subgraph DDoS Attack
+        K[Botnet] -->|Flood Traffic| B
+        K -->|Overload Resources| E
+        B -->|Server Overwhelmed| E
+        E -->|Disruption| L[Service Outage]
+    end
+
     %% Mitigations
     M1([Mitigation: Strong Authentication]) --> T1
     M2([Mitigation: HTTPS]) --> T2
     M3([Mitigation: Non-repudiation Mechanisms]) --> T3
     M4([Mitigation: Data Encryption]) --> T4
-    M5([Mitigation: Rate Limiting]) --> T5
+    M5([Mitigation: Rate Limiting & Load Balancing]) --> T5
     M6([Mitigation: Access Controls]) --> T6
+
