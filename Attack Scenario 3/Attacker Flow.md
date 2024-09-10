@@ -4,34 +4,28 @@
 sequenceDiagram
     participant Attacker
     participant TaskHubApp
-    participant CnCServer
     participant BackendServer
-    participant User
+    participant Database
 
     activate Attacker
-    Attacker->>TaskHubApp: Identify TaskHub application
-    TaskHubApp->>Attacker: Application identified
+    Attacker->>TaskHubApp: Identify vulnerable input fields (e.g., login forms)
+    TaskHubApp->>Attacker: Vulnerabilities identified
     deactivate Attacker
 
     activate Attacker
-    Attacker->>TaskHubApp: Craft phishing email targeting admin users
-    TaskHubApp->>Attacker: Phishing email crafted
+    Attacker->>TaskHubApp: Craft and submit malicious SQL query
+    TaskHubApp->>BackendServer: Malicious SQL query executed
+    BackendServer->>Database: Unauthorized database access granted
     deactivate Attacker
 
     activate Attacker
-    Attacker->>TaskHubApp: Deploy phishing campaign targeting users/admins
-    TaskHubApp->>User: Phishing email sent
-    activate User
-    User->>TaskHubApp: Clicks on malicious link
-    TaskHubApp->>User: Credentials harvested
-    deactivate User
+    Attacker->>Database: Exfiltrate sensitive project data
+    Database->>Attacker: Sensitive data retrieved
     deactivate Attacker
 
     activate Attacker
-    Attacker->>TaskHubApp: Use stolen credentials to access backend
-    TaskHubApp->>BackendServer: Gain access to backend using admin credentials
-    BackendServer->>CnCServer: Communication established
-    CnCServer->>BackendServer: Commands issued to manipulate data
-    BackendServer->>CnCServer: Exfiltrate sensitive data
+    Attacker->>BackendServer: Modify or delete project tasks
+    BackendServer->>Database: Project data manipulated
     deactivate Attacker
+
 
