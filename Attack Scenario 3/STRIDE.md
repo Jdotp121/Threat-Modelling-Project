@@ -23,7 +23,11 @@ graph TD
     A -.->|Access| I[Admin Panel]
     I -.->|Controls| J[Admin Functionality]
 
-    %% Threats
+    %% SQL Injection Threat
+    T7([SQL Injection: Malicious Query Execution]) -.-> D
+    T8([Data Exfiltration: Unauthorized Data Access]) -.-> F
+
+    %% Other Threats
     T1([Spoofing: Spoof User Identity]) -.-> A
     T2([Tampering: Alter HTTP Request]) -.-> B
     T3([Repudiation: Deny Transactions]) -.-> H
@@ -31,10 +35,5 @@ graph TD
     T5([Denial of Service: Overload Server]) -.-> B
     T6([Elevation of Privilege: Unauthorized Access]) -.-> I
 
-    %% Mitigations
-    M1([Mitigation: Strong Authentication]) --> T1
-    M2([Mitigation: HTTPS]) --> T2
-    M3([Mitigation: Non-repudiation Mechanisms]) --> T3
-    M4([Mitigation: Data Encryption]) --> T4
-    M5([Mitigation: Rate Limiting]) --> T5
-    M6([Mitigation: Access Controls]) --> T6
+    %% SQL
+
