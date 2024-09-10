@@ -1,4 +1,4 @@
-This is a generic example of how you can use STRIDE to demonstrate the current controls in place for the application and is not specific to scenario 1.
+This diagram maps out the flow of TaskHub, highlights common security threats, and outlines the appropriate mitigations to ensure a secure application environment using STRIDE to demonstrate the current controls in place for the application.
 
 ```mermaid      
 graph TD
