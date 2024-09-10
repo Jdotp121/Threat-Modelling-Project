@@ -2,7 +2,7 @@
 
 # Attack Description
 
-The attacker is an APT who has conducted avdanced research on TaskHub. The attacker initiates the attack by identifying key personnel who likely had admin credentials to production environments. This way the attacker does not need to bypass a WAF or any other security controls but will instead have direct access to the environments as if an admin.
+The attacker, an Advanced Persistent Threat (APT) group, initiates the Distributed Denial of Service (DDoS) attack by leveraging a network of compromised devices to overwhelm TaskHub’s servers with a massive influx of traffic. The goal is to exhaust system resources and disrupt normal operations, rendering the service inaccessible to legitimate users. By orchestrating the attack through a large-scale botnet, the attacker can effectively bypass individual security measures and create widespread service disruption.
 
 # Methodology
 The attack sequence below utilises the MITRE ATT&CK framework along with the commonly used techniques. 
@@ -22,24 +22,19 @@ flowchart TD
     style Actions_Objectives fill:#BA4A00,stroke:#000,stroke-width:2px
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
 
-    Reconnaissance[Reconnaissance] -->|Attacker searches LinkedIn for TaskHub admins| Weaponization[Weaponization]
-    Weaponization -->|Craft phishing email targeting TaskHub admins| Delivery[Delivery]
-    Delivery -->|Send phishing emails to TaskHub users and admins| Exploitation[Exploitation]
-    Exploitation -->|Trick users into revealing credentials or downloading malware| Installation[Installation]
-    Installation -->|Gain access to TaskHub backend using compromised credentials| Command_Control[Command and Control]
-    Command_Control -->|Establish persistent access and communicate with C&C server| Actions_Objectives[Actions on Objectives]
-    Actions_Objectives -->|Steal sensitive project data| Actions_Objectives
-    Actions_Objectives -->|Manipulate or delete project tasks| Actions_Objectives
+    Reconnaissance[Reconnaissance] -->|Identify TaskHub's network infrastructure and vulnerabilities| Weaponization[Weaponization]
+    Weaponization -->|Assemble a botnet of compromised devices| Delivery[Delivery]
+    Delivery -->|Launch a massive flood of traffic to TaskHub’s servers| Exploitation[Exploitation]
+    Exploitation -->|Overwhelm TaskHub’s resources and disrupt service| Installation[Installation]
+    Installation -->|Monitor the attack's impact and adjust strategy if needed| Command_Control[Command and Control]
+    Command_Control -->|Communicate with the botnet and manage the attack| Actions_Objectives[Actions on Objectives]
+    Actions_Objectives -->|Maintain service disruption for as long as possible| Actions_Objectives
 
     subgraph MITRE_Attack[MITRE ATT&CK Techniques]
     style MITRE fill:#85C1E9,stroke:#000,stroke-width:2px
-    Delivery -->|T1566.001 - Phishing| MITRE
-    Exploitation -->|T1190 - Exploit Public-Facing Application| MITRE
-    Exploitation -->|T1059.003 - Command and Scripting Interpreter| MITRE
-    Installation -->|T1106 - Execution through API| MITRE
-    Command_Control -->|T1102 - Web Service| MITRE
-    Command_Control -->|T1105 - Ingress Tool Transfer| MITRE
-    Actions_Objectives -->|T1136 - Create Account| MITRE
-    Actions_Objectives -->|T1565.001 - Data Manipulation| MITRE
+    Delivery -->|T1203 - Exploitation for Client Execution| MITRE
+    Exploitation -->|T1499 - Endpoint Denial of Service| MITRE
+    Command_Control -->|T1071.001 - Application Layer Protocol| MITRE
     end
+
 
